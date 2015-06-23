@@ -1,2 +1,8 @@
 # virtuoso-server
-Server side for testing of virtuoso.js
+Серверная сторона для тестирования virtuoso.js
+
+####Для запуска выполните команду:
+```
+    $npm install
+    $node server/server.js
+```
