@@ -5,15 +5,19 @@
     var http = require('http').Server(app);
     var io = require('socket.io')(http);
 
-    app.get('/', function(req, res){
-        res.send('<h1>Socket.io Hello world</h1>');
-    });
-
     io.on('connection', function(socket){
-        console.log('a user connected');
+
+        setInterval(function () {
+            socket.emit('server', { hello: new Date() });
+        }, 5000);
+
+        socket.on('answer', function (data) {
+            console.log(data);
+        });
     });
 
     http.listen(3000, function(){
         console.log('listening on *:3000');
     });
+
 })();
